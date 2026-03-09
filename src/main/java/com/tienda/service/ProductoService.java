@@ -76,4 +76,18 @@ public class ProductoService {
             );
         }
     }
+    @Transactional
+    public List<Producto>consultaDerivada(double precioInf,double precioSup){
+    return productoRepository.findByPrecioBetweenOrderByPrecioAsc(precioInf, precioSup);
+}
+ 
+        @Transactional
+    public List<Producto>consultaJPQL(double precioInf,double precioSup){
+    return productoRepository.consultaJPQL(precioInf, precioSup);
+}
+
+    @Transactional
+    public List<Producto>consultaSQL(double precioInf,double precioSup){
+    return productoRepository.consultaSQL(precioInf, precioSup);
+}
 }
